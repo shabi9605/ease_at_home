@@ -10,3 +10,6 @@ In this project consist 5 modules, they are:-
 3.Home Servicers,
 4.Shop Owners,
 5.Volunteers.
+
+
+This include a cart , wishlist and online payment using razorpay.
