@@ -1,0 +1,17 @@
+{% extends 'index.html' %}{% load crispy_forms_tags %}
+{% block content %} 
+<div style="background-color: aquamarine;padding-top: 2em;padding-bottom: 2em;">
+    <center>
+{% if register %}<h1> Thank you for Registering</h1>
+{% else %}
+<h1 style="font-weight: bold;">Customer Register form</h1>
+<form action="" method="POST" style="font-size: 20px;font-weight: bold;" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{user_form|crispy}}{{customer_form|crispy}}
+    <input type="submit" value="REGISTER" style="margin-top: 1em;background-color: brown;">
+</form>
+{% endif %}
+</center>
+</div>
+
+{% endblock %}

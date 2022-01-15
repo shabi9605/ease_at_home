@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+<div style="background-color: #9cbfbf;padding-top: 3em;padding-left: 3em;padding-bottom: 3em;">
+
+<a href="{% url 'shop_register' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-right: 2em;">SHOP REGSITER</a>
+<a href="{% url 'customer_register' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-right: 2em;">CUSTOMER REGSITER</a>
+<a href="{% url 'home_servicer_register' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-right: 2em;">HOME SERVICER REGSITER</a>
+
+
+
+</div>
+{% endblock %}

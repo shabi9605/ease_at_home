@@ -1,0 +1,46 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<div>
+
+    <form action="" method="GET"> 
+        {% csrf_token %}
+        <label for="">Location</label>
+        <input type="text" name='location'>
+        <label for="bank" >Select Category: </label> <select name="category" >
+            {% for i in category %}
+            <option value="{{i.id}}" name="category">{{i.servicer_category_name}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value='SEARCH'>
+    
+    </form>
+    
+    
+    
+    
+    </div>
+
+
+    <div style="background-color: navajowhite;padding-top: 2em;padding-bottom: 3em;">
+        {% for i in servicer %}
+        
+        <div class="card" style="margin-left: 1em;margin-right: 1em;margin-bottom: 1em;">
+            <h5 class="card-header">Name: {{i.user.username}}</h5>
+            <div class="card-body">
+              <h5 class="card-title">Phone Number: {{i.phone}}</h5>
+              <p class="card-text">Location: {{i.location}}</p>
+              <p class="card-text">Availability: {{i.availability_status}}</p>
+              <p class="card-text">Qualification: {{i.qualification}}</p>
+              <a href="{% url 'servicer_booking' i.id %}" class="btn btn-primary">BOOK</a>
+              
+            </div>
+          </div>
+        
+        {% endfor %}
+        </div>
+
+
+
+{% endblock %}

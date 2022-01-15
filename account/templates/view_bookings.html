@@ -1,0 +1,149 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+
+<div>
+    {% if user.customer %}
+    <div id="page-wrapper" style="background-color: wheat;padding-top: 3em;padding-bottom: 2em;">
+        <div class="main-page">
+            <div class="forms">
+                <h3 class="title1"></h3>
+                    <h4>Booking Table</h4>
+                    
+                    <table class="table">
+                        <thead>
+                            <tr>
+                            <th>#</th>
+                              
+                              <th>Name</th>
+                              <th>Photo</th>
+                              <th>Date</th>
+                              
+                              <th>Wanted Date</th>
+                              <th>Place</th>
+                              <th>Amount</th>
+                              <th>Status</th>
+                              <th>Payment Status</th>
+                              <th>PAY</th>
+                              <th>Delete</th>
+
+                             
+                            </tr>
+                        </thead>
+                        {% for l in customer_bookings %}
+                        <tbody style="background-color: slategrey;font-size: 15px;">
+                            <tr>
+                                <td class="serial">{{ forloop.counter }}</td>
+
+                              
+                              <td>{{l.servicer.user.username}}</td>
+                              <td><a href="{{l.servicer.proof.url}}"><img src="{{l.servicer.proof.url}}" width="40px" height="40px"></a></td>
+                              <td>{{l.date}}</td>
+                              <td>{{l.wanted_date}}</td>
+                              <td>{{l.amount}}</td>
+                              
+                              <td>{{l.place}}</td>
+                              <td>{{l.status}}</td>
+                              {% if l.paid_status == 'paid' %}
+                          <td style="color: green;font-weight: bold;font-size: 20px;">{{l.paid_status}}</td>
+                          {% else %}
+                          <td style="color: red;font-weight: bold;font-size: 20px;">{{l.paid_status}}</td>
+                          {% endif %}
+                          {% if l.paid_status == 'notpaid' %}
+                              <td><a href="{% url 'payment:servicer_payment' l.id %}">PAY</a></td>
+                              {% else %}
+                              <td style="color: green;font-weight: bold;font-size: 20px;">{{l.paid_status}}</td>
+                              {% endif %}
+                              <td><a href="{% url 'delete_booking' l.id%}" style="color: red;" onclick="return confirm('are u sure d u want to delete this record')">Delete</a></td>
+                              
+
+                            </tr>
+                            
+                        </tbody>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+
+                
+        </div>
+    </div>
+</div>
+</div>
+{% endif %}
+
+
+
+{% if user.homeservicer %}
+
+<div id="page-wrapper" style="background-color: wheat;padding-top: 3em;padding-bottom: 2em;">
+    <div class="main-page">
+        <div class="forms">
+            <h3 class="title1"></h3>
+                <h4>Booking Table</h4>
+                <div>{% if messages %} {% for mess in messages %}
+                    <b style="color: brown;">{{mess}}</b> {% endfor %} {% endif %}</div>
+            </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                        <th>#</th>
+                          
+                          <th>Name</th>
+                          
+                          <th>Date</th>
+                          
+                          <th>Wanted Date</th>
+                          <th>Place</th>
+                          <th>Amount</th>
+                          <th>Status</th>
+                          <th>Payment Status</th>
+                          <th>Update</th>
+
+                         
+                        </tr>
+                    </thead>
+                    {% for l in servicer_bookings %}
+                    <tbody style="background-color: slategrey;font-size: 15px;">
+                        <tr>
+                            <td class="serial">{{ forloop.counter }}</td>
+
+                          
+                          <td>{{l.customer.user.username}}</td>
+                          
+                          <td>{{l.date}}</td>
+                          <td>{{l.wanted_date}}</td>
+                          
+                          <td>{{l.place}}</td>
+                          <td>{{l.amount}}</td>
+                          <td>{{l.status}}</td>
+                          {% if l.paid_status == 'paid' %}
+                          <td style="color: green;font-weight: bold;font-size: 20px;">{{l.paid_status}}</td>
+                          {% else %}
+                          <td style="color: red;font-weight: bold;font-size: 20px;">{{l.paid_status}}</td>
+                          {% endif %}
+                          <td><a href="{% url 'update_booking' l.id %}" style="color: red;">Update Booking</a></td>
+                          
+                          
+
+                        </tr>
+                        
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+
+            
+    </div>
+</div>
+</div>
+</div>
+
+{% endif %}
+
+</div>
+
+
+{% endblock %}

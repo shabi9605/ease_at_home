@@ -1,0 +1,47 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+<div style="height: 24em;">
+<div style="background:url(static/images/5.jpg);background-size: 95em 40em;background-repeat: no-repeat;padding-top: 4em;padding-bottom: 11em;padding-left: 2em;">
+
+<h1>{{user.username}}</h1>
+{% if user.shop %}
+<a href="{% url 'product_create' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.5em;">ADD PRODUCTS</a>
+<a href="{% url 'view_my_products' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.5em;">VIEW PRODUCTS</a>
+<a href="{% url 'orders:view_orders' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.5em;">VIEW ORDERS</a>
+<a href="{% url 'volunteer' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.6em;">VIEW OUR EMPLOYEES</a>
+{% endif %}
+
+
+
+{% if user.customer %}
+
+<a href="{% url 'view_all_products' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.5em;">VIEW PRODUCTS</a>
+<a href="{% url 'orders:neworder' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.5em;">VIEW ORDERS</a>
+<a href="{% url 'cart:cart_detail' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.5em;">VIEW CART</a>
+<a href="{% url 'home_servicers' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.5em;">HOME SERVICERS</a>
+<a href="{% url 'view_customer_bookings' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.5em;margin-top: 1em;">VIEW BOOKINGS</a>
+<a href="{% url 'wishlist:wishlist_detail' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.5em;margin-top: 1em;">VIEW WISHLIST</a>
+
+
+{% endif %}
+
+{% if user.volunteer %}
+
+<a href="{% url 'orders:view_orders' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.5em;">VIEW ORDERS</a>
+<a href="{% url 'volunteer_availability' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.5em;">UPDATE AVAILABILITY</a>
+
+{% endif %}
+
+
+{% if user.homeservicer %}
+<a href="{% url 'view_servicer_bookings' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.5em;">VIEW BOOKINGS</a>
+<a href="{% url 'servicer_availability' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.5em;">UPDATE AVAILABILITY</a>
+{% endif %}
+
+
+</div>
+</div>
+
+{% endblock %}

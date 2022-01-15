@@ -1,0 +1,45 @@
+{% extends "index.html" %} {% load static %} {% block title %} {{ product.name }} {% endblock %} {% block content %}
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card mt-4">
+            <div class="card-body">
+                <img src="{% if product.photo %}{{ product.photo.url }}{% endif %}" class="card-img-top img-fluid">
+            </div>
+        </div>
+        &nbsp &nbsp
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card mt-4">
+            <div class="card-body">
+                <h2 class="my-4"><a style=" text-decoration: none;" href="{% url 'product' %}">See More Products</a></h2>
+            </div>
+        </div>
+
+        {% if product %}
+        <div class="card mt-4">
+            <div class="card-body" style="color: saddlebrown; text-transform: capitalize; font-family: 'Times New Roman', Times, serif;">
+                <h3 class="card-title">{{ product.name }}</h3>
+                <h4>Rs. {{ product.price }}</h4>
+                <h4>Stock: {{ product.stock }}</h4>
+                <h4>Price Declare Date in : {{ product.price_declare_date }}</h4>
+                <h4>Lottery Number : {{ product.lottery_number }} </h4>
+                <h5 class="" style="color: seagreen; font-size: larger;">{{ product.description|linebreaks }}</h5>
+                <div class="card-footer text-center">
+                    <small class="text-muted form-group ">
+                    <a href="{% url  'cart:cart_add' product.id %}" class="btn btn-primary">Add to cart</a>
+                    <a class="btn btn-primary" href="{% url 'booking_create' %}" class="btn btn-default">Book Now</a>
+                  </small>
+                </div>
+            </div>
+        </div>{% else %}<i class="fa fa-heart-o"></i>
+        <div class="col-md-12">
+            <p>No Listings Available</p>
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+
+
+{% endblock %}
