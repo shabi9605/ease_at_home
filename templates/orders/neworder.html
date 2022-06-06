@@ -95,10 +95,11 @@
           <thead>
             <tr>
               <!-- <th scope="col">#</th> -->
-              
+              <th scope="col">Product</th>
               <th scope="col">Price</th>
               <th scope="col">Date</th>
               <th scope="col">Quantity</th>
+              <th scope="col">Total</th>
               <th scope="col">Payment status</th>
               <th scope="col">Delivery Status</th>
 			  <th scope="col">Expected Delivery</th>
@@ -109,10 +110,12 @@
           <tbody>
               {% for i in order %}
             <tr style="background-color: #d9a3a3;">
-				
+			
+                <td>{{ i.product}}</td>
               <td>{{ i.price}}</td>
               <td>{{ i.order.created}}</td>
               <td>{{ i.quantity }}</td>
+              <td>{{ i.total }}</td>
               {% if i.order.paid == True %}
                 <td style="color: green;font-size: 20px;">Paid</td>
                 {% else %}

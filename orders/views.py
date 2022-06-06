@@ -25,11 +25,14 @@ def order_save(request):
     
     )   
     cart = Cart.objects.get(user=request.user)
+    cartitem=CartItem.objects.filter(cart__user=request.user)
+    for i in cartitem:
+        print(i.product,i.quantity)
     order.save()
     request.session['order']=order.id
-    for item in cart.items.all():
+    for item in cartitem:
         orderItem, created = OrderItem.objects.update_or_create(user=order.user,
-            order=order, product=item.product, price=item.price, quantity=item.quantity)
+            order=order, product=item.product, price=item.price, quantity=item.quantity,total=item.quantity*item.price)
         order.order_items.add(orderItem)
     return render(request,'payment/process.html')
 
