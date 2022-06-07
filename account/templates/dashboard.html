@@ -17,12 +17,12 @@
 
 {% if user.customer %}
 
-<a href="{% url 'view_all_products' %}" class="btn btn-primary btn-lg active col-xs-12" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.5em;">VIEW PRODUCTS</a>
-<a href="{% url 'orders:neworder' %}" class="btn btn-primary btn-lg active col-xs-12" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.5em;">VIEW ORDERS</a>
-<a href="{% url 'cart:cart_detail' %}" class="btn btn-primary btn-lg active col-xs-12" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.5em;">VIEW CART</a>
-<a href="{% url 'home_servicers' %}" class="btn btn-primary btn-lg active col-xs-12" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.5em;">HOME SERVICERS</a>
-<a href="{% url 'view_customer_bookings' %}" class="btn btn-primary btn-lg active col-xs-12" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.5em;margin-top: 1em;">VIEW BOOKINGS</a>
-<a href="{% url 'wishlist:wishlist_detail' %}" class="btn btn-primary btn-lg active col-xs-12" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.5em;margin-top: 1em;">VIEW WISHLIST</a>
+<a href="{% url 'view_all_products' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.5em;">VIEW PRODUCTS</a>
+<a href="{% url 'orders:neworder' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.5em;">VIEW ORDERS</a>
+<a href="{% url 'cart:cart_detail' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.5em;">VIEW CART</a>
+<a href="{% url 'home_servicers' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.5em;">HOME SERVICERS</a>
+<a href="{% url 'view_customer_bookings' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.5em;margin-top: 1em;">VIEW BOOKINGS</a>
+<a href="{% url 'wishlist:wishlist_detail' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-right: 2em;height: 5em;width: 13em;padding-top: 1.5em;margin-top: 1em;">VIEW WISHLIST</a>
 
 
 {% endif %}
