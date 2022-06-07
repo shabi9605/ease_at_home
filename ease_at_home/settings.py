@@ -23,7 +23,7 @@ TEMPLATE_DIR=os.path.join(BASE_DIR,'templates')
 SECRET_KEY = '4+z!azfe4bvbt)(h3qk63(3+h7(xpb)8v8a1kj6yp42=6=l_dl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','easeathome.herokuapp.com']
 
