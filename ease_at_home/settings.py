@@ -24,7 +24,7 @@ TEMPLATE_DIR=os.path.join(BASE_DIR,'templates')
 SECRET_KEY = '4+z!azfe4bvbt)(h3qk63(3+h7(xpb)8v8a1kj6yp42=6=l_dl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','easeathome.herokuapp.com']
 
@@ -127,17 +127,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATIC_DIRS = os.path.join(BASE_DIR,'static')
 # STATICFILES_ROOT = [
 #     STATIC_ROOT,
 # ]
 
 if DEBUG:
    STATICFILES_DIRS = [
-   STATIC_ROOT,
+   STATIC_DIRS,
    ]
 else:
-   STATIC_ROOT
+   STATIC_DIRS
 
 
 
