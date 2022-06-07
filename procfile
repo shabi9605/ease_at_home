@@ -1,0 +1,1 @@
+web: gunicorn ease_at_home.wsgi --log-file -
