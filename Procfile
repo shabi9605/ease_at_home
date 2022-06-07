@@ -1,1 +1,1 @@
-web: gunicorn ease_at_home.wsgi.application --log-file -
+web: gunicorn ease_at_home.wsgi 
