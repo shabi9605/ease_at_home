@@ -97,7 +97,7 @@
 					
 						
 						<div class="form-three widget-shadow" style="background-color: wheat;">
-							<form class="form-horizontal" action="" method='POST' enctype="multipart/form-data" style="font-size: 20px;font-weight: bold;">
+							<form class="form-horizontal" action="" method='POST' enctype="multipart/form-data" style="font-size: 20px;font-weight: bold;margin-left: 2em;margin-right: 2em;">
 								{% csrf_token %}
                                 {{product_form|crispy}}
 								<div class="col-sm-offset-2"> <button type="submit" class="btn btn-default" style="margin-top: 1em;background-color: tomato;">Add Product</button> </div>

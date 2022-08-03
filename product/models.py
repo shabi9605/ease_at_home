@@ -10,7 +10,7 @@ from account.models import *
 class Product(models.Model):
     
     name=models.CharField(max_length=50,db_index=True)
-    slug = models.SlugField(max_length=200, db_index=True)
+    # slug = models.SlugField(max_length=200, db_index=True,null=True,blank=True)
     image=models.ImageField(upload_to='product_image/%Y/%m/%d')
     price=models.PositiveIntegerField()
     shop=models.ForeignKey(Shop,on_delete=models.CASCADE,null=True,blank=True)
@@ -26,7 +26,7 @@ class Product(models.Model):
 
     class Meta:
         ordering = ('-created',)
-        index_together = (('id', 'slug'),)
+        index_together = (('id', ),)
 
     def get_absolute_url(self):
         return reverse('account:product_detail', args=[self.id, self.slug])

@@ -31,7 +31,7 @@ def product_create(request):
             profile.shop=shop
             profile.location=shop.location
             profile.save()
-            messages.success(request,'Lottery add successfully')
+            messages.success(request,'Product added successfully')
             return redirect('dashboard')
         else:
             HttpResponse('invalid form')
